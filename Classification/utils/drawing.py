@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 import matplotlib.pyplot as plt
 
-def print_classes(dim_x, dim_y, y_train, y_train_smote, df_pca):
+def print_classes(dim_x, dim_y, y_train, df_pca):
     colmap = {'ependymoma' : 'red',
         'glioblastoma' : 'green',
         'medulloblastoma' : 'blue',
@@ -30,8 +30,8 @@ def print_classes(dim_x, dim_y, y_train, y_train_smote, df_pca):
         for y in range(1,dim_y+1):
             axis[x][y-1].set_xlabel('pca_' + str(x))
             axis[x][y-1].set_ylabel('pca_' + str(y+x))
-            for i in range(len(y_train_smote)):
-                axis[x][y-1].scatter(df_pca['pca_' + str(x)][i], df_pca['pca_' + str(x+y)][i], c = colmap[y_train_smote[i]])
+            for i in range(len(y_train)):
+                axis[x][y-1].scatter(df_pca['pca_' + str(x)][i], df_pca['pca_' + str(x+y)][i], c = colmap[y_train[i]])
             axis[x][y-1].legend(custom_lines,names, loc = 'upper left', fontsize = 'xx-small')
     plt.show()
 
