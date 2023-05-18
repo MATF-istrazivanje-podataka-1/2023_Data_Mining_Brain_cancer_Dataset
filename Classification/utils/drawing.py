@@ -61,7 +61,7 @@ def load_preprocess_data(path, drop, target):
     pca = PCA()
     scaler = StandardScaler()
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state= 11, stratify= y)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state= 11, stratify= y)
 
     scaler.fit(X_train)
     X_train_standard = scaler.transform(X_train)
